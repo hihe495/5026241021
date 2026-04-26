@@ -1,0 +1,39 @@
+ body {
+            background-color: #e6ffff;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 10px;
+            text-align: justify;
+        }
+
+        #publish {
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        .judulgambar {
+            text-align: center;
+        }
+
+        .judul {
+            text-align: center;
+            font-weight: bold;
+            color: rgb(0, 179, 255);
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .margin {
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-right: 150px;
+            margin-left: 80px;
+        }
+
+        .marginjudul {
+            margin-left: 60px;
+        }
+
+        .imground {
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }

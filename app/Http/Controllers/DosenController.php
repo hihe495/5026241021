@@ -10,7 +10,7 @@ class DosenController extends Controller
 {
     //
 
-public function index(){
+public function inde(){
     return "<h1>Halo ini adalah method index, dalam controller DosenController. - www.malasngoding.com<h1>";
 }
 
