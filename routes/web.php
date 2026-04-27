@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DosenController;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\BlogController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,3 +54,12 @@ Route::get('responsive', function () {
 Route::get('dosen', [DosenController::class, 'inde']);
 
 Route::get('biodata', [DosenController::class, 'biodata']);
+
+Route::get('/pegawai/{nama}', [PegawaiController::class, 'ind']);
+Route::get('/formulir', [PegawaiController::class, 'formulir']);
+Route::get('/formulir/proses', [PegawaiController::class, 'proses']);
+
+
+Route::get('/blog', [BlogController::class, 'home']);
+Route::get('/blog/tentang', [BlogController::class, 'tentang']);
+Route::get('/blog/kontak', [BlogController::class, 'kontak']);
