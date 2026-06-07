@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PegawaiDBController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,8 +22,8 @@ Route::get('pertemuan5', function () {
     return view('pertemuan5');
 });
 
-Route::get('index', function () {
-    return view('index');
+Route::get('index1', function () {
+    return view('index1');
 });
 
 Route::get('linktree', function () {
@@ -51,20 +52,24 @@ Route::get('responsive', function () {
     return view('responsive');
 });
 
-Route::get('dosen', [DosenController::class, 'inde']);
+Route::get('dosen', [DosenController::class, 'index']);
 
 Route::get('biodata', [DosenController::class, 'biodata']);
 
-Route::get('/pegawai/{nama}', [PegawaiController::class, 'ind']);
+Route::get('/pegawai/{nama}', [PegawaiController::class, 'index']);
 Route::get('/formulir', [PegawaiController::class, 'formulir']);
 Route::get('/formulir/proses', [PegawaiController::class, 'proses']);
 
-
+//blog
 Route::get('/blog', [BlogController::class, 'home']);
 Route::get('/blog/tentang', [BlogController::class, 'tentang']);
 Route::get('/blog/kontak', [BlogController::class, 'kontak']);
 
-// CRUD Pegawai
-Route::get('/pegawai', [PegawaiController::class, 'index1']);
-Route::get('/pegawai/tambah', [PegawaiController::class, 'tambah']);
-Route::post('/pegawai/simpan', [PegawaiController::class, 'simpan']);
+//crud
+Route::get('/pegawai/', [PegawaiDBController::class, 'index']);
+Route::get('/pegawaitambah', [PegawaiDBController::class, 'tambah']);
+Route::post('/pegawaistore', [PegawaiDBController::class, 'store']);
+Route::get('/pegawaiedit/{id}', [PegawaiDBController::class, 'edit']);
+Route::post('/pegawaiupdate', [PegawaiDBController::class, 'update']);
+Route::get('/pegawaihapus/{id}', [PegawaiDBController::class, 'hapus']);
+Route::get('/pegawaicari', [PegawaiDBController::class, 'cari']);
