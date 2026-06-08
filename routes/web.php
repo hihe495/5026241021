@@ -5,6 +5,7 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
+use App\Http\Controllers\KeranjangController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,8 +23,8 @@ Route::get('pertemuan5', function () {
     return view('pertemuan5');
 });
 
-Route::get('index1', function () {
-    return view('index1');
+Route::get('index', function () {
+    return view('index');
 });
 
 Route::get('linktree', function () {
@@ -73,3 +74,11 @@ Route::get('/pegawaiedit/{id}', [PegawaiDBController::class, 'edit']);
 Route::post('/pegawaiupdate', [PegawaiDBController::class, 'update']);
 Route::get('/pegawaihapus/{id}', [PegawaiDBController::class, 'hapus']);
 Route::get('/pegawaicari', [PegawaiDBController::class, 'cari']);
+
+
+
+//crud keranjang
+Route::get('/keranjang', [KeranjangController::class, 'index']);
+Route::get('/keranjang/tambah', [KeranjangController::class, 'create']);
+Route::post('/keranjang/store', [KeranjangController::class, 'store']);
+Route::get('/keranjang/hapus/{id}', [KeranjangController::class, 'destroy']);
