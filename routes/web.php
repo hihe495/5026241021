@@ -5,7 +5,8 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiDBController;
-use App\Http\Controllers\KeranjangController;
+use App\Http\Controllers\BelanjaController;
+use App\Http\Controllers\SiswaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -78,7 +79,18 @@ Route::get('/pegawaicari', [PegawaiDBController::class, 'cari']);
 
 
 //crud keranjang
-Route::get('/keranjang', [KeranjangController::class, 'index']);
-Route::get('/keranjang/tambah', [KeranjangController::class, 'create']);
-Route::post('/keranjang/store', [KeranjangController::class, 'store']);
-Route::get('/keranjang/hapus/{id}', [KeranjangController::class, 'destroy']);
+Route::get('/belanja/', [BelanjaController::class, 'index']);
+Route::get('/belanjatambah', [BelanjaController::class, 'tambah']);
+Route::post('/belanjastore', [BelanjaController::class, 'store']);
+Route::get('/belanjahapus/{id}', [BelanjaController::class, 'hapus']);
+
+
+
+//route CRUD siswa
+Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
+Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
+Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
+Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
+Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
+Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+

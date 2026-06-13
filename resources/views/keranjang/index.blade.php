@@ -1,41 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Keranjang Belanja</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-<div class="container mt-4">
-    <h2>Keranjang Belanja</h2>
-    <a href="/keranjang/tambah" class="btn btn-primary mb-3">+ Beli</a>
+@extends('template')
 
-    <table class="table table-bordered table-striped text-center">
-        <thead class="thead-dark">
+@section('title', 'Data Keranjang')
+<!-- konten  -->
+
+@section('konten')
+
+    <center>
+
+        <br />
+        <br />
+        <p>Data Belanja :</p>
+        <br />
+
+        <table class="table table-stripped table-hover">
             <tr>
-                <th>Kode Pembelian</th>
+                <th>Kode Belanja</th>
                 <th>Kode Barang</th>
                 <th>Jumlah Pembelian</th>
                 <th>Harga per Item</th>
                 <th>Total</th>
                 <th>Action</th>
             </tr>
-        </thead>
-        <tbody>
-            @foreach($data as $item)
-            <tr>
-                <td>{{ $item->id }}</td>
-                <td>{{ $item->KodeBarang }}</td>
-                <td>{{ $item->Jumlah }}</td>
-                <td>Rp {{ number_format($item->Harga, 0, ',', '.') }}</td>
-                <td>Rp {{ number_format($item->Jumlah * $item->Harga, 0, ',', '.') }}</td>
-                <td>
-                    <a href="/keranjang/hapus/{{ $item->id }}" class="btn btn-danger btn-sm"
-                       onclick="return confirm('Yakin batalkan?')">Batal</a>
-                </td>
-            </tr>
+            @foreach ($belanja as $p)
+                <tr>
+                    <td>{{ $p->id }}</td>
+                    <td>{{ $p->KodeBarang }}</td>
+                    <td>{{ $p->Jumlah }}</td>
+                    <td>{{ $p->Harga }}</td>
+                    <td>{{ $p->Harga*$p->Jumlah }}</td>
+                    <td>
+                        <a href="/belanjatambah" class="btn btn-warning">Beli</a>
+                        |
+                        <a href="/belanjahapus/{{ $p->id }}" class="btn btn-danger">Batal</a>
+                    </td>
+                </tr>
             @endforeach
-        </tbody>
-    </table>
-</div>
-</body>
-</html>
+        </table>
+
+    </center>
+
+
+@endsection
