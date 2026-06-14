@@ -8,6 +8,7 @@ use App\Http\Controllers\PegawaiDBController;
 use App\Http\Controllers\BelanjaController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\NilaiKuliahController;
+use App\Http\Controllers\SepedaMotorController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -101,3 +102,13 @@ Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.
 Route::get('/nilaikuliah', [NilaiKuliahController::class, 'index']);
 Route::get('/nilaikuliahtambah', [NilaiKuliahController::class, 'tambah']);
 Route::post('/nilaikuliahstore', [NilaiKuliahController::class, 'store']);
+
+
+//crud
+Route::get('/sepedamotor/', [SepedaMotorController::class, 'index']);
+Route::get('/sepedamotortambah', [SepedaMotorController::class, 'tambah']);
+Route::post('/sepedamotorstore', [SepedaMotorController::class, 'store']);
+Route::get('/sepedamotoredit/{kodesepedamotor}', [SepedaMotorController::class, 'edit']);
+Route::post('/pegawaiupdate', [SepedaMotorController::class, 'update']);
+Route::get('/sepedamotorhapus/{kodesepedamotor}', [SepedaMotorController::class, 'hapus']);
+Route::get('/sepedamotorcari', [SepedaMotorController::class, 'cari']);

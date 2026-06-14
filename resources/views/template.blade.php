@@ -24,6 +24,9 @@
                         <a class="nav-link active" href="/pegawai">Pegawai</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" href="/sepedamotor">Sepeda Motor</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="/belanja">Keranjang Belanja</a>
                     </li>
                     <li class="nav-item">
